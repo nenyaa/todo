@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, FormControl, InputLabel, Input } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -20,13 +21,22 @@ function App() {
     <div className="App">
       <h1> My first REACT app</h1>
       <form>
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <button type="submit" onClick={addTodo}>
+        <FormControl>
+          <InputLabel> Write a Todo</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          />
+        </FormControl>
+
+        <Button
+          disabled={!input}
+          type="submit"
+          onClick={addTodo}
+          variant="contained"
+        >
           Add Todo
-        </button>
+        </Button>
       </form>
       <ul>
         {todos.map((todo) => (
